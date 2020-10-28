@@ -10,7 +10,7 @@ class TestHomePage(TestCase):
         self.assertTemplateUsed(response,'travel_wishlist/wishlist.html')
         self.assertContains(response,'You have no places in your Wishlist')
 
-
+#Checking wish list and taking as example Tokyo and New York and San Francisco 
 class TestWishList(TestCase):
     fixtures = ['test_places']
 
@@ -22,6 +22,7 @@ class TestWishList(TestCase):
         self.assertNotContains(response, 'San Francisco')
         self.assertNotContains(response, 'Moab')
 
+#checking visited places putting Tokyo and New York as visited and San Francisto as not visited 
 class TestVisitedList(TestCase):
 
     fixtures = ['test_places']
@@ -35,6 +36,7 @@ class TestVisitedList(TestCase):
         self.assertContains(response, 'San Francisco')        
         self.assertContains(response, 'Moab')
 
+# checking places visited and sisplaying 1 result in this case Tokyo
 class TestAddNewPlace(TestCase):
 
     def test_add_new_unvisited_place_to_wishlist(self):
